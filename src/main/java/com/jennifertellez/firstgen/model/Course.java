@@ -14,7 +14,7 @@ public class Course {
     private String courseName;
     private Double units;
 
-    @ManyToMany
+    @ManyToOne
     @JoinColumn(name = "school_id")
     private School school;
 
