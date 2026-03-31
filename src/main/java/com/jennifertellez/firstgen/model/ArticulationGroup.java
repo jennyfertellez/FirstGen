@@ -1,11 +1,15 @@
 package com.jennifertellez.firstgen.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @Entity
 @Table(name = "articulation_groups")
+@Data
+@NoArgsConstructor
 public class ArticulationGroup {
 
     @Id
@@ -32,22 +36,8 @@ public class ArticulationGroup {
             joinColumns = @JoinColumn(name = "articulation_group_id"),
             inverseJoinColumns =  @JoinColumn(name = "course_id")
     )
+
     private List<Course> ccCourses;
 
-    public ArticulationGroup() {}
-
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
-
-    public School getTargetSchool() { return targetSchool; }
-    public void setTargetSchool(School targetSchool) { this.targetSchool = targetSchool; }
-
-    public String getMajor() { return major; }
-    public void setMajor(String major) { this.major = major; }
-
-    public Course getTargetCourse() { return targetCourse; }
-    public void setTargetCourse(Course targetCourse) { this.targetCourse = targetCourse; }
-
-    public List<Course> getCcCourses() { return ccCourses; }
-    public void setCcCourses(List<Course> ccCourses) {  this.ccCourses = ccCourses; }
+    private boolean isRequired;
 }

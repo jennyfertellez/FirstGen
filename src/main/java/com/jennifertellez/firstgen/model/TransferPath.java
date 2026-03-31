@@ -1,9 +1,13 @@
 package com.jennifertellez.firstgen.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "transfer_paths")
+@Data
+@NoArgsConstructor
 public class TransferPath {
 
     @Id
@@ -21,21 +25,4 @@ public class TransferPath {
     private String major;
 
     private Integer catalogYear;
-
-    public TransferPath() {}
-
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
-
-    public Student getStudent() { return student; }
-    public void setStudent(Student student) { this.student = student; }
-
-    public School getTargetSchool() { return targetSchool; }
-    public void setTargetSchool(School targetSchool) { this.targetSchool = targetSchool; }
-
-    public String getMajor() { return major; }
-    public void setMajor(String major) { this.major = major; }
-
-    public Integer getCatalogYear() { return catalogYear; }
-    public void setCatalogYear(Integer catalogYear) { this.catalogYear = catalogYear; }
 }

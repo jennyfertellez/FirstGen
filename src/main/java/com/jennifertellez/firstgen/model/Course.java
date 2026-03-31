@@ -1,9 +1,15 @@
 package com.jennifertellez.firstgen.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "courses")
+@Data
+@NoArgsConstructor
 public class Course {
 
     @Id
@@ -12,26 +18,10 @@ public class Course {
 
     private String courseCode;
     private String courseName;
-    private Double units;
+    private BigDecimal units;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "school_id")
     private School school;
 
-    public Course() {}
-
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
-
-    public String getCourseCode() { return courseCode; }
-    public void setCourseCode(String courseCode) { this.courseCode = courseCode; }
-
-    public String getCourseName() { return courseName; }
-    public void setCourseName(String courseName) { this.courseName = courseName; }
-
-    public Double getUnits() { return units; }
-    public void setUnits(Double units) { this.units = units; }
-
-    public School getSchool() { return school; }
-    public void setSchool(School school) { this.school = school; }
 }

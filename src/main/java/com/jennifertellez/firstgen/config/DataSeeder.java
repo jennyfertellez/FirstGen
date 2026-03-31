@@ -10,6 +10,7 @@ import com.jennifertellez.firstgen.repository.SchoolRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Component
@@ -116,11 +117,11 @@ public class DataSeeder implements CommandLineRunner {
         saveArticulation(ucsd, major, ucsdMATH18, List.of(math260));
     }
 
-    private Course saveCourse(String code, String name, Double units, School school) {
+    private Course saveCourse(String code, String name, double units, School school) {
         Course course = new Course();
         course.setCourseCode(code);
         course.setCourseName(name);
-        course.setUnits(units);
+        course.setUnits(BigDecimal.valueOf(units));
         course.setSchool(school);
         return courseRepository.save(course);
     }
